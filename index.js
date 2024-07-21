@@ -21,9 +21,26 @@ app.get('/', function (req, res) {
 app.get('/dashboard', function (req, res) {
     res.render("dashboard")
 })
+//thank you route
+app.get('/thankyou', function (req, res) {
+    res.render('thankyou')
+})
+let votes = {
+    option1: 0,
+    option2: 0,
+    option3: 0,
+    option4: 0
+}
 
 io.on("connection", function (socket) {
     console.log("New user connected " + socket.id);
+
+    socket.emit('update_votes', votes);
+
+    socket.on("submit_vote", (option) => {
+        votes[option]++;
+        io.emit('update_votes', votes);
+    })
 
     socket.on('disconnect', function () {
         console.log("User Disconnected " + socket.id)

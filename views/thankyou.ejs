@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you</title>
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+        #poll {
+            border: none;
+            outline: none;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Thank you for polling.</h1>
+        <button id="poll">Poll Again</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('poll');
+            btn.addEventListener('click', () => {
+                window.location.href = '/'
+            })
+        })
+    </script>
+</body>
+
+</html>
